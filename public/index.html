@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pataccaburdel | Ristorante Tipico Romagnolo a Bertinoro</title>
+  <meta name="description" content="Cucina di tradizione romagnola, Sangiovese d'annata e una vista mozzafiato sulle colline di Bertinoro. La vera ospitalità romagnola.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#7c2d12',
+            secondary: '#c2703c',
+            accent: '#a16207',
+            cream: '#faf7f2',
+            'cream-dark': '#f5f0e8',
+            charcoal: '#1c1917',
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            sans: ['Source Sans 3', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="font-sans bg-cream text-charcoal antialiased">
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-secondary/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2">
+          <span class="font-serif text-2xl md:text-3xl font-semibold text-primary tracking-tight">Pataccaburdel</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="#chi-siamo" class="text-charcoal/80 hover:text-primary transition-colors font-medium">Chi Siamo</a>
+          <a href="#menu" class="text-charcoal/80 hover:text-primary transition-colors font-medium">Menu</a>
+          <a href="#dove-siamo" class="text-charcoal/80 hover:text-primary transition-colors font-medium">Dove Siamo</a>
+          <a href="#contatti" class="text-charcoal/80 hover:text-primary transition-colors font-medium">Contatti</a>
+          <a href="tel:+390543445566" class="bg-primary text-cream px-5 py-2.5 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+            Prenota
+          </a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-charcoal" aria-label="Menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <nav id="mobile-menu" class="hidden md:hidden pb-4">
+        <div class="flex flex-col gap-3">
+          <a href="#chi-siamo" class="text-charcoal/80 hover:text-primary transition-colors font-medium py-2">Chi Siamo</a>
+          <a href="#menu" class="text-charcoal/80 hover:text-primary transition-colors font-medium py-2">Menu</a>
+          <a href="#dove-siamo" class="text-charcoal/80 hover:text-primary transition-colors font-medium py-2">Dove Siamo</a>
+          <a href="#contatti" class="text-charcoal/80 hover:text-primary transition-colors font-medium py-2">Contatti</a>
+          <a href="tel:+390543445566" class="bg-primary text-cream px-5 py-2.5 rounded-lg font-semibold text-center hover:bg-primary/90 transition-colors mt-2">
+            Prenota Ora
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+      <img 
+        src="/images/hero-bertinoro.jpg" 
+        alt="Vista panoramica delle colline di Bertinoro al tramonto" 
+        class="w-full h-full object-cover"
+      >
+      <div class="absolute inset-0 bg-gradient-to-b from-charcoal/60 via-charcoal/40 to-charcoal/70"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+      <p class="text-cream/90 text-lg md:text-xl font-light tracking-widest uppercase mb-4">
+        Ristorante Tipico Romagnolo
+      </p>
+      <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-cream font-semibold mb-6 leading-tight" style="text-wrap: balance;">
+        La tradizione ha il sapore di casa
+      </h1>
+      <p class="text-cream/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+        Pasta fatta a mano, carni alla griglia e il miglior Sangiovese delle colline di Bertinoro.
+        Dove ogni piatto racconta una storia.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="tel:+390543445566" class="bg-primary text-cream px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary/90 transition-colors shadow-lg">
+          Prenota un Tavolo
+        </a>
+        <a href="#menu" class="border-2 border-cream/50 text-cream px-8 py-4 rounded-lg font-semibold text-lg hover:bg-cream/10 transition-colors">
+          Scopri il Menu
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <svg class="w-6 h-6 text-cream/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Chi Siamo Section -->
+  <section id="chi-siamo" class="py-20 md:py-28 bg-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <!-- Image -->
+        <div class="relative">
+          <div class="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
+            <img 
+              src="/images/arzdora-pasta.jpg" 
+              alt="L'arzdora che tira la sfoglia con il mattarello" 
+              class="w-full h-full object-cover"
+            >
+          </div>
+          <!-- Decorative element -->
+          <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary/20 rounded-2xl -z-10"></div>
+        </div>
+
+        <!-- Content -->
+        <div>
+          <p class="text-secondary font-semibold tracking-widest uppercase text-sm mb-3">La Nostra Storia</p>
+          <h2 class="font-serif text-4xl md:text-5xl text-charcoal font-semibold mb-6 leading-tight">
+            Dove la sfoglia si tira ancora a mano
+          </h2>
+          <div class="space-y-4 text-charcoal/70 text-lg leading-relaxed">
+            <p>
+              Siamo a Bertinoro, il "balcone di Romagna", dove da tre generazioni la nostra famiglia 
+              accoglie chi vuole scoprire i sapori autentici di questa terra.
+            </p>
+            <p>
+              Qui l'arzdora — la regina della casa romagnola — tira ancora la sfoglia col mattarello, 
+              come faceva sua nonna e la nonna di sua nonna. Cappelletti, tagliatelle, strozzapreti: 
+              ogni formato nasce dalle sue mani esperte.
+            </p>
+            <p>
+              La nostra cucina non segue le mode: segue le stagioni, rispetta la tradizione e celebra 
+              i prodotti del territorio. Dal Sangiovese alle carni della Mora Romagnola, ogni ingrediente 
+              racconta la storia di chi lo produce.
+            </p>
+          </div>
+          <div class="mt-8 flex items-center gap-6">
+            <div class="text-center">
+              <p class="font-serif text-4xl text-primary font-semibold">1952</p>
+              <p class="text-charcoal/60 text-sm">Anno di fondazione</p>
+            </div>
+            <div class="w-px h-12 bg-secondary/30"></div>
+            <div class="text-center">
+              <p class="font-serif text-4xl text-primary font-semibold">3</p>
+              <p class="text-charcoal/60 text-sm">Generazioni</p>
+            </div>
+            <div class="w-px h-12 bg-secondary/30"></div>
+            <div class="text-center">
+              <p class="font-serif text-4xl text-primary font-semibold">100%</p>
+              <p class="text-charcoal/60 text-sm">Fatto a mano</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Preview Section -->
+  <section id="menu" class="py-20 md:py-28 bg-cream-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <p class="text-secondary font-semibold tracking-widest uppercase text-sm mb-3">I Nostri Piatti</p>
+        <h2 class="font-serif text-4xl md:text-5xl text-charcoal font-semibold mb-4">
+          La cucina della tradizione
+        </h2>
+        <p class="text-charcoal/70 text-lg max-w-2xl mx-auto">
+          Ricette tramandate di generazione in generazione, preparate con ingredienti locali e stagionali.
+        </p>
+      </div>
+
+      <!-- Menu Cards -->
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- I Primi -->
+        <div class="group bg-cream rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img 
+              src="/images/primi-pasta.jpg" 
+              alt="Cappelletti in brodo e tagliatelle fatte a mano" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            >
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-2xl text-charcoal font-semibold mb-2">I Primi</h3>
+            <p class="text-charcoal/70 mb-4">
+              Cappelletti, tagliatelle al ragù, strozzapreti e passatelli. Sfoglia tirata a mano ogni giorno.
+            </p>
+            <p class="text-secondary font-semibold">da €12</p>
+          </div>
+        </div>
+
+        <!-- La Griglia -->
+        <div class="group bg-cream rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img 
+              src="/images/griglia-carne.jpg" 
+              alt="Carni alla griglia su tagliere di legno" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            >
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-2xl text-charcoal font-semibold mb-2">La Griglia</h3>
+            <p class="text-charcoal/70 mb-4">
+              Costine, salsicce, bistecca di Mora Romagnola. Carni selezionate e cotte sulla brace viva.
+            </p>
+            <p class="text-secondary font-semibold">da €16</p>
+          </div>
+        </div>
+
+        <!-- La Piadina -->
+        <div class="group bg-cream rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img 
+              src="/images/piadina.jpg" 
+              alt="Piadina romagnola con squacquerone e prosciutto" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            >
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-2xl text-charcoal font-semibold mb-2">La Piadina</h3>
+            <p class="text-charcoal/70 mb-4">
+              Cotta sul testo di terracotta. Squacquerone, prosciutto crudo, rucola e salsiccia.
+            </p>
+            <p class="text-secondary font-semibold">da €8</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center mt-12">
+        <a href="#" class="inline-flex items-center gap-2 text-primary font-semibold text-lg hover:text-secondary transition-colors">
+          Scopri il menu completo
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dove Siamo Section -->
+  <section id="dove-siamo" class="py-20 md:py-28 bg-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Content -->
+        <div>
+          <p class="text-secondary font-semibold tracking-widest uppercase text-sm mb-3">Dove Trovarci</p>
+          <h2 class="font-serif text-4xl md:text-5xl text-charcoal font-semibold mb-6 leading-tight">
+            Nel cuore delle colline romagnole
+          </h2>
+          <p class="text-charcoal/70 text-lg leading-relaxed mb-8">
+            Bertinoro è chiamato il "balcone di Romagna" per la sua vista mozzafiato che spazia 
+            dall'Appennino al mare. Il nostro ristorante si affaccia su questo panorama unico, 
+            dove potrai gustare i sapori della tradizione ammirando le colline al tramonto.
+          </p>
+
+          <!-- Info Cards -->
+          <div class="space-y-4">
+            <!-- Address -->
+            <div class="flex items-start gap-4 p-4 bg-cream-dark rounded-xl">
+              <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-charcoal mb-1">Indirizzo</h4>
+                <p class="text-charcoal/70">Via della Rocca, 15</p>
+                <p class="text-charcoal/70">47032 Bertinoro (FC)</p>
+              </div>
+            </div>
+
+            <!-- Hours -->
+            <div class="flex items-start gap-4 p-4 bg-cream-dark rounded-xl">
+              <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-charcoal mb-1">Orari</h4>
+                <p class="text-charcoal/70">Mar - Dom: 12:00 - 14:30 / 19:00 - 22:30</p>
+                <p class="text-charcoal/70">Lunedì: Chiuso</p>
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="flex items-start gap-4 p-4 bg-cream-dark rounded-xl">
+              <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-charcoal mb-1">Telefono</h4>
+                <a href="tel:+390543445566" class="text-primary hover:text-secondary transition-colors font-medium">
+                  +39 0543 445566
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map Placeholder -->
+        <div class="relative">
+          <div class="aspect-square lg:aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl bg-cream-dark">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2871.8!2d12.13!3d44.15!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDTCsDA5JzAwLjAiTiAxMsKwMDcnNDguMCJF!5e0!3m2!1sit!2sit!4v1234567890"
+              class="w-full h-full border-0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Mappa Pataccaburdel Bertinoro"
+            ></iframe>
+          </div>
+          <!-- Decorative element -->
+          <div class="absolute -top-6 -left-6 w-32 h-32 bg-secondary/20 rounded-2xl -z-10"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contatti" class="bg-charcoal text-cream/80 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-12">
+        <!-- Brand -->
+        <div class="lg:col-span-1">
+          <a href="#" class="font-serif text-3xl text-cream font-semibold">Pataccaburdel</a>
+          <p class="mt-4 text-cream/60 leading-relaxed">
+            Ristorante tipico romagnolo nel cuore di Bertinoro. Tradizione, passione e ospitalità dal 1952.
+          </p>
+        </div>
+
+        <!-- Orari -->
+        <div>
+          <h4 class="font-serif text-xl text-cream font-semibold mb-4">Orari</h4>
+          <ul class="space-y-2 text-cream/60">
+            <li class="flex justify-between">
+              <span>Martedì - Venerdì</span>
+              <span>12:00 - 22:30</span>
+            </li>
+            <li class="flex justify-between">
+              <span>Sabato - Domenica</span>
+              <span>12:00 - 23:00</span>
+            </li>
+            <li class="flex justify-between">
+              <span>Lunedì</span>
+              <span class="text-secondary">Chiuso</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contatti -->
+        <div>
+          <h4 class="font-serif text-xl text-cream font-semibold mb-4">Contatti</h4>
+          <ul class="space-y-2 text-cream/60">
+            <li>
+              <a href="tel:+390543445566" class="hover:text-cream transition-colors">+39 0543 445566</a>
+            </li>
+            <li>
+              <a href="mailto:info@pataccaburdel.it" class="hover:text-cream transition-colors">info@pataccaburdel.it</a>
+            </li>
+            <li>Via della Rocca, 15</li>
+            <li>47032 Bertinoro (FC)</li>
+          </ul>
+        </div>
+
+        <!-- Social -->
+        <div>
+          <h4 class="font-serif text-xl text-cream font-semibold mb-4">Seguici</h4>
+          <div class="flex gap-4">
+            <a href="#" class="w-10 h-10 bg-cream/10 rounded-full flex items-center justify-center hover:bg-cream/20 transition-colors" aria-label="Facebook">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <a href="#" class="w-10 h-10 bg-cream/10 rounded-full flex items-center justify-center hover:bg-cream/20 transition-colors" aria-label="Instagram">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+              </svg>
+            </a>
+            <a href="#" class="w-10 h-10 bg-cream/10 rounded-full flex items-center justify-center hover:bg-cream/20 transition-colors" aria-label="TripAdvisor">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12.006 4.295c-2.67 0-5.338.784-7.645 2.353H0l1.963 2.135a5.997 5.997 0 004.3 10.125 5.994 5.994 0 005.738-4.254 5.994 5.994 0 005.738 4.254 5.997 5.997 0 004.3-10.125L24 6.648h-4.35a13.573 13.573 0 00-7.644-2.353zM6.263 17.908a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998zm11.474 0a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998zM6.263 11.91a2 2 0 100 4 2 2 0 000-4zm11.474 0a2 2 0 100 4 2 2 0 000-4z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-cream/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-cream/50 text-sm">
+          &copy; 2024 Pataccaburdel. Tutti i diritti riservati.
+        </p>
+        <div class="flex gap-6 text-sm text-cream/50">
+          <a href="#" class="hover:text-cream transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-cream transition-colors">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu Script -->
+  <script>
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close menu when clicking on a link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  </script>
+
+</body>
+</html>
