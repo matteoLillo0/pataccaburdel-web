@@ -1,0 +1,6 @@
+services:
+  pataccaburdel-web:
+    build: .
+    container_name: pataccaburdel-web
+    ports:
+      - '8080:3000'
