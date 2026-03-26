@@ -1,0 +1,216 @@
+﻿Listino Prezzi Completo (Menù "Patacca Burdel")
+Tutti i prezzi si intendono comprensivi del servizio di sala (se non diversamente specificato) e delle materie prime del territorio.
+🧀 Antipasti e Sfiziosità
+Prodotto / Servizio
+	Descrizione
+	U.M.
+	Prezzo
+	IVA
+	Tagliere del "Burdel"
+	Prosciutto crudo, salame nostrano, coppa, squacquerone DOP, fichi caramellati.
+	Porzione
+	14,00 €
+	10%
+	Crostini Misti Romagnoli
+	Fegatini, funghi, salsiccia e pomodorini (6 pz).
+	Porzione
+	8,00 €
+	10%
+	Pecorino Fuso
+	Pecorino fuso al forno con miele di castagno e noci.
+	Porzione
+	9,00 €
+	10%
+	🍝 Primi Piatti (Pasta Fresca al Mattarello)
+Prodotto / Servizio
+	Descrizione
+	U.M.
+	Prezzo
+	IVA
+	Cappelletti della Tradizione
+	Chiusi a mano, serviti con ricco ragù di carne mista. (Già presente)
+	Porzione
+	13,00 €
+	10%
+	Passatelli Romagnoli
+	Asciutti (con fonduta di fossa e tartufo) o in brodo di cappone. (Già presente)
+	Porzione
+	12,00 €
+	10%
+	Strozzapreti Pasticciati
+	Salsiccia, panna, pomodoro e un pizzico di peperoncino.
+	Porzione
+	11,00 €
+	10%
+	Tagliatelle al Ragù
+	Tagliatella ruvida classica con ragù della "zdora" a lenta cottura.
+	Porzione
+	11,00 €
+	10%
+	🥩 Secondi Piatti (Dalla Griglia e dal Forno)
+Prodotto / Servizio
+	Descrizione
+	U.M.
+	Prezzo
+	IVA
+	Tagliata di Manzo
+	Ai Sali di Romagna (Cervia) e rosmarino. (Già presente)
+	Porzione
+	18,00 €
+	10%
+	Grigliata Mista "Burdel"
+	Coppa di maiale, salsiccia matta, pancetta e pomodoro gratinato. (Già presente)
+	Porzione
+	16,50 €
+	10%
+	Castrato ai Ferri
+	Taglio tipico romagnolo con sale grosso e profumo d'aglio.
+	Porzione
+	17,00 €
+	10%
+	Coniglio in Porchetta
+	Arrotolato e farcito con finocchietto selvatico e pancetta.
+	Porzione
+	15,00 €
+	10%
+	🥗 Contorni
+Prodotto / Servizio
+	Descrizione
+	U.M.
+	Prezzo
+	IVA
+	Patate Rustiche al Forno
+	Con aglio in camicia e rosmarino.
+	Porzione
+	5,00 €
+	10%
+	Erbe di Campagna Saltate
+	Cicoria e bietole saltate in padella con aglio e peperoncino.
+	Porzione
+	5,00 €
+	10%
+	Verdure Gratinate
+	Pomodori, zucchine e melanzane con pangrattato profumato.
+	Porzione
+	6,00 €
+	10%
+	🫓 L'Angolo della Piadina e dei Crescioni
+Prodotto / Servizio
+	Descrizione
+	U.M.
+	Prezzo
+	IVA
+	Cesto Piadina Spessa (Cesenate)
+	Artigianale, IGP (5 pezzi). (Già presente)
+	Cesto
+	4,00 €
+	10%
+	Cesto Piadina Sottile (Riminese)
+	Artigianale, IGP (5 pezzi). (Già presente)
+	Cesto
+	3,50 €
+	10%
+	Piadina Crudo e Squacquerone
+	Farcita con Prosciutto Crudo DOP, Squacquerone e rucola.
+	Cad.
+	7,50 €
+	10%
+	Crescione alle Erbe
+	(Cassone) farcito con erbe di campo (rosole) e aglio.
+	Cad.
+	6,00 €
+	10%
+	Crescione Rosso
+	(Cassone) farcito con pomodoro e mozzarella.
+	Cad.
+	6,00 €
+	10%
+	🍕 Pizzeria (Forno a Legna, Lievitazione 48h)
+Prodotto / Servizio
+	Descrizione
+	U.M.
+	Prezzo
+	IVA
+	Pizza Margherita
+	Pomodoro San Marzano, fiordilatte, basilico fresco. (Già presente)
+	Cad.
+	7,50 €
+	10%
+	Pizza "Patacca"
+	Fiordilatte, salsiccia, patate al forno, rosmarino. (Già presente)
+	Cad.
+	10,00 €
+	10%
+	Pizza Diavola
+	Pomodoro, fiordilatte, spianata piccante calabra.
+	Cad.
+	8,50 €
+	10%
+	Pizza Romagnola
+	Pomodoro, fiordilatte. In uscita: Crudo, stracchino e rucola.
+	Cad.
+	11,00 €
+	10%
+	🍰 Dolci della Casa
+Prodotto / Servizio
+	Descrizione
+	U.M.
+	Prezzo
+	IVA
+	Mascarpone della Nonna
+	In coppa con scaglie di cioccolato fondente. (Già presente)
+	Porzione
+	5,50 €
+	10%
+	Zuppa Inglese
+	Ricetta classica con Alchermes e crema pasticcera.
+	Porzione
+	6,00 €
+	10%
+	Ciambella Romagnola
+	Fetta di ciambella dura, ideale da "tocciare" (inzuppare) nel vino.
+	Porzione
+	4,00 €
+	10%
+	🍷 Cantina e Bevande
+Prodotto / Servizio
+	Descrizione
+	U.M.
+	Prezzo
+	IVA
+	Acqua Microfiltrata
+	Naturale o Frizzante (0,75L).
+	Bott.
+	2,50 €
+	10%
+	Birra Artigianale Biondi
+	Birrificio locale alla spina (Media 0,4L).
+	Bicchiere
+	5,50 €
+	10%
+	Sangiovese Sup. "Riserva"
+	Bottiglia di vino rosso locale DOC. (Già presente)
+	Bott.
+	18,00 €
+	22%
+	Albana di Romagna DOCG
+	Secco (per carni bianche/primi) o Dolce (per la ciambella).
+	Bott.
+	22,00 €
+	22%
+	Cagnina di Romagna
+	Vino dolce rosso novello, perfetto per i dessert.
+	Calice
+	4,00 €
+	10%
+	🍽️ Servizi Aggiuntivi
+Prodotto / Servizio
+	Descrizione
+	U.M.
+	Prezzo
+	IVA
+	Servizio e Coperto
+	Apparecchiatura in stoffa, cestino di pane e grissini. (Già presente)
+	Persona
+	2,50 €
+	10%

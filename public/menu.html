@@ -1,11 +1,591 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu | Pataccaburdel — Ristorante Tipico Romagnolo a Bertinoro</title>
+  <meta name="description" content="Scopri il menu completo del Pataccaburdel: antipasti, primi fatti a mano, carni alla griglia, piadine, pizze, dolci e vini romagnoli.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#7c2d12',
+            secondary: '#c2703c',
+            accent: '#a16207',
+            cream: '#faf7f2',
+            'cream-dark': '#f5f0e8',
+            charcoal: '#1c1917',
+            wine: '#4a1028',
+            olive: '#3d4f2f',
+            terracotta: '#c4704b',
+            gold: '#b8860b',
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            sans: ['Source Sans 3', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .menu-item {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .menu-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    .section-divider {
+      width: 60px;
+      height: 3px;
+      border-radius: 2px;
+    }
+    /* Scrollbar hide for nav */
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
 </head>
-<body>
-    <!-- TODO, non è nemmeno linkata all'index -->
+<body class="font-sans bg-cream text-charcoal antialiased">
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-secondary/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <a href="/" class="flex items-center gap-2">
+          <span class="font-serif text-2xl md:text-3xl font-semibold text-primary tracking-tight">Pataccaburdel</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="/#chi-siamo" class="text-charcoal/80 hover:text-primary transition-colors font-medium">Chi Siamo</a>
+          <a href="/menu.html" class="text-primary font-semibold border-b-2 border-primary pb-0.5">Menu</a>
+          <a href="/#dove-siamo" class="text-charcoal/80 hover:text-primary transition-colors font-medium">Dove Siamo</a>
+          <a href="/#contatti" class="text-charcoal/80 hover:text-primary transition-colors font-medium">Contatti</a>
+          <a href="mailto:pataccaburdel@gmail.com" class="bg-primary text-cream px-5 py-2.5 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+            ✉ Scrivici
+          </a>
+        </nav>
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-charcoal" aria-label="Menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+      <nav id="mobile-menu" class="hidden md:hidden pb-4">
+        <div class="flex flex-col gap-3">
+          <a href="/#chi-siamo" class="text-charcoal/80 hover:text-primary transition-colors font-medium py-2">Chi Siamo</a>
+          <a href="/menu.html" class="text-primary font-semibold py-2">Menu</a>
+          <a href="/#dove-siamo" class="text-charcoal/80 hover:text-primary transition-colors font-medium py-2">Dove Siamo</a>
+          <a href="/#contatti" class="text-charcoal/80 hover:text-primary transition-colors font-medium py-2">Contatti</a>
+          <a href="mailto:pataccaburdel@gmail.com" class="bg-primary text-cream px-5 py-2.5 rounded-lg font-semibold text-center hover:bg-primary/90 transition-colors mt-2">
+            ✉ Scrivici
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="relative pt-16 md:pt-20 overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/images/primi-pasta.jpg" alt="" class="w-full h-full object-cover" aria-hidden="true">
+      <div class="absolute inset-0 bg-gradient-to-b from-wine/85 via-wine/75 to-charcoal/90"></div>
+    </div>
+    <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto py-16 md:py-24">
+      <p class="text-terracotta text-sm md:text-base font-semibold tracking-[0.25em] uppercase mb-4">✦ Il Nostro Menu ✦</p>
+      <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl text-cream font-semibold mb-5 leading-tight">
+        Listino Completo
+      </h1>
+      <div class="w-20 h-0.5 bg-gradient-to-r from-transparent via-terracotta to-transparent mx-auto mb-5"></div>
+      <p class="text-cream/70 text-lg max-w-xl mx-auto font-light leading-relaxed">
+        Tutti i prezzi si intendono comprensivi del servizio di sala e delle materie prime del territorio.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 text-cream/50 text-sm">
+        <span>📍 Via Cantalupo 67, 47032 Bertinoro (FC)</span>
+        <span class="hidden sm:inline">·</span>
+        <a href="mailto:pataccaburdel@gmail.com" class="text-terracotta hover:text-cream transition-colors">✉ pataccaburdel@gmail.com</a>
+      </div>
+    </div>
+    <!-- Quick Nav -->
+    <div class="relative z-10 bg-charcoal/60 backdrop-blur-sm border-t border-cream/10">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex gap-4 overflow-x-auto py-3 scrollbar-hide justify-center">
+          <a href="#antipasti" class="flex-shrink-0 text-cream/60 hover:text-terracotta transition-colors text-sm font-medium">🧀 Antipasti</a>
+          <a href="#primi" class="flex-shrink-0 text-cream/60 hover:text-terracotta transition-colors text-sm font-medium">🍝 Primi</a>
+          <a href="#secondi" class="flex-shrink-0 text-cream/60 hover:text-terracotta transition-colors text-sm font-medium">🥩 Secondi</a>
+          <a href="#contorni" class="flex-shrink-0 text-cream/60 hover:text-terracotta transition-colors text-sm font-medium">🥗 Contorni</a>
+          <a href="#piadine" class="flex-shrink-0 text-cream/60 hover:text-terracotta transition-colors text-sm font-medium">🫓 Piadine</a>
+          <a href="#pizze" class="flex-shrink-0 text-cream/60 hover:text-terracotta transition-colors text-sm font-medium">🍕 Pizze</a>
+          <a href="#dolci" class="flex-shrink-0 text-cream/60 hover:text-terracotta transition-colors text-sm font-medium">🍰 Dolci</a>
+          <a href="#cantina" class="flex-shrink-0 text-cream/60 hover:text-terracotta transition-colors text-sm font-medium">🍷 Cantina</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- ANTIPASTI — Light background -->
+  <!-- ═══════════════════════════════════════ -->
+  <section id="antipasti" class="py-16 md:py-20 bg-cream">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 fade-up">
+        <span class="text-4xl mb-3 block">🧀</span>
+        <h2 class="font-serif text-3xl md:text-4xl text-charcoal font-semibold">Antipasti e Sfiziosità</h2>
+        <div class="section-divider bg-gradient-to-r from-terracotta to-gold mx-auto mt-4"></div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-5">
+        <div class="menu-item fade-up bg-white rounded-xl p-5 md:p-6 shadow-sm border border-terracotta/10">
+          <div class="flex justify-between items-start gap-4">
+            <div class="flex-1">
+              <h3 class="font-serif text-xl font-semibold text-charcoal">Tagliere del "Burdel"</h3>
+              <p class="text-charcoal/60 mt-1 text-sm leading-relaxed">Prosciutto crudo, salame nostrano, coppa, squacquerone DOP, fichi caramellati.</p>
+            </div>
+            <span class="text-xl font-serif font-bold text-primary whitespace-nowrap">14,00 €</span>
+          </div>
+        </div>
+        <div class="menu-item fade-up bg-white rounded-xl p-5 md:p-6 shadow-sm border border-terracotta/10">
+          <div class="flex justify-between items-start gap-4">
+            <div class="flex-1">
+              <h3 class="font-serif text-xl font-semibold text-charcoal">Crostini Misti Romagnoli</h3>
+              <p class="text-charcoal/60 mt-1 text-sm leading-relaxed">Fegatini, funghi, salsiccia e pomodorini (6 pz).</p>
+            </div>
+            <span class="text-xl font-serif font-bold text-primary whitespace-nowrap">8,00 €</span>
+          </div>
+        </div>
+        <div class="menu-item fade-up bg-white rounded-xl p-5 md:p-6 shadow-sm border border-terracotta/10">
+          <div class="flex justify-between items-start gap-4">
+            <div class="flex-1">
+              <h3 class="font-serif text-xl font-semibold text-charcoal">Pecorino Fuso</h3>
+              <p class="text-charcoal/60 mt-1 text-sm leading-relaxed">Pecorino fuso al forno con miele di castagno e noci.</p>
+            </div>
+            <span class="text-xl font-serif font-bold text-primary whitespace-nowrap">9,00 €</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- PRIMI — Dark background -->
+  <!-- ═══════════════════════════════════════ -->
+  <section id="primi" class="py-16 md:py-20 bg-wine text-cream">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 fade-up">
+        <span class="text-4xl mb-3 block">🍝</span>
+        <h2 class="font-serif text-3xl md:text-4xl font-semibold">Primi Piatti</h2>
+        <p class="text-cream/60 mt-2">Pasta fresca al mattarello</p>
+        <div class="section-divider bg-gradient-to-r from-terracotta to-gold mx-auto mt-4"></div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-5">
+        <div class="menu-item fade-up bg-cream/10 backdrop-blur-sm rounded-xl p-5 md:p-6 border border-cream/10">
+          <div class="flex justify-between items-start gap-4">
+            <div class="flex-1">
+              <h3 class="font-serif text-xl font-semibold">Cappelletti della Tradizione</h3>
+              <p class="text-cream/60 mt-1 text-sm leading-relaxed">Chiusi a mano, serviti con ricco ragù di carne mista.</p>
+            </div>
+            <span class="text-xl font-serif font-bold text-terracotta whitespace-nowrap">13,00 €</span>
+          </div>
+        </div>
+        <div class="menu-item fade-up bg-cream/10 backdrop-blur-sm rounded-xl p-5 md:p-6 border border-cream/10">
+          <div class="flex justify-between items-start gap-4">
+            <div class="flex-1">
+              <h3 class="font-serif text-xl font-semibold">Passatelli Romagnoli</h3>
+              <p class="text-cream/60 mt-1 text-sm leading-relaxed">Asciutti (con fonduta di fossa e tartufo) o in brodo di cappone.</p>
+            </div>
+            <span class="text-xl font-serif font-bold text-terracotta whitespace-nowrap">12,00 €</span>
+          </div>
+        </div>
+        <div class="menu-item fade-up bg-cream/10 backdrop-blur-sm rounded-xl p-5 md:p-6 border border-cream/10">
+          <div class="flex justify-between items-start gap-4">
+            <div class="flex-1">
+              <h3 class="font-serif text-xl font-semibold">Strozzapreti Pasticciati</h3>
+              <p class="text-cream/60 mt-1 text-sm leading-relaxed">Salsiccia, panna, pomodoro e un pizzico di peperoncino.</p>
+            </div>
+            <span class="text-xl font-serif font-bold text-terracotta whitespace-nowrap">11,00 €</span>
+          </div>
+        </div>
+        <div class="menu-item fade-up bg-cream/10 backdrop-blur-sm rounded-xl p-5 md:p-6 border border-cream/10">
+          <div class="flex justify-between items-start gap-4">
+            <div class="flex-1">
+              <h3 class="font-serif text-xl font-semibold">Tagliatelle al Ragù</h3>
+              <p class="text-cream/60 mt-1 text-sm leading-relaxed">Tagliatella ruvida classica con ragù della "zdora" a lenta cottura.</p>
+            </div>
+            <span class="text-xl font-serif font-bold text-terracotta whitespace-nowrap">11,00 €</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- SECONDI — Warm background -->
+  <!-- ═══════════════════════════════════════ -->
+  <section id="secondi" class="py-16 md:py-20 bg-gradient-to-br from-cream-dark to-cream">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 fade-up">
+        <span class="text-4xl mb-3 block">🥩</span>
+        <h2 class="font-serif text-3xl md:text-4xl text-charcoal font-semibold">Secondi Piatti</h2>
+        <p class="text-charcoal/60 mt-2">Dalla griglia e dal forno</p>
+        <div class="section-divider bg-gradient-to-r from-primary to-terracotta mx-auto mt-4"></div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-5">
+        <div class="menu-item fade-up bg-white rounded-xl p-5 md:p-6 shadow-sm border border-primary/10">
+          <div class="flex justify-between items-start gap-4">
+            <div class="flex-1">
+              <h3 class="font-serif text-xl font-semibold text-charcoal">Tagliata di Manzo</h3>
+              <p class="text-charcoal/60 mt-1 text-sm leading-relaxed">Ai Sali di Romagna (Cervia) e rosmarino.</p>
+            </div>
+            <span class="text-xl font-serif font-bold text-primary whitespace-nowrap">18,00 €</span>
+          </div>
+        </div>
+        <div class="menu-item fade-up bg-white rounded-xl p-5 md:p-6 shadow-sm border border-primary/10">
+          <div class="flex justify-between items-start gap-4">
+            <div class="flex-1">
+              <h3 class="font-serif text-xl font-semibold text-charcoal">Grigliata Mista "Burdel"</h3>
+              <p class="text-charcoal/60 mt-1 text-sm leading-relaxed">Coppa di maiale, salsiccia matta, pancetta e pomodoro gratinato.</p>
+            </div>
+            <span class="text-xl font-serif font-bold text-primary whitespace-nowrap">16,50 €</span>
+          </div>
+        </div>
+        <div class="menu-item fade-up bg-white rounded-xl p-5 md:p-6 shadow-sm border border-primary/10">
+          <div class="flex justify-between items-start gap-4">
+            <div class="flex-1">
+              <h3 class="font-serif text-xl font-semibold text-charcoal">Castrato ai Ferri</h3>
+              <p class="text-charcoal/60 mt-1 text-sm leading-relaxed">Taglio tipico romagnolo con sale grosso e profumo d'aglio.</p>
+            </div>
+            <span class="text-xl font-serif font-bold text-primary whitespace-nowrap">17,00 €</span>
+          </div>
+        </div>
+        <div class="menu-item fade-up bg-white rounded-xl p-5 md:p-6 shadow-sm border border-primary/10">
+          <div class="flex justify-between items-start gap-4">
+            <div class="flex-1">
+              <h3 class="font-serif text-xl font-semibold text-charcoal">Coniglio in Porchetta</h3>
+              <p class="text-charcoal/60 mt-1 text-sm leading-relaxed">Arrotolato e farcito con finocchietto selvatico e pancetta.</p>
+            </div>
+            <span class="text-xl font-serif font-bold text-primary whitespace-nowrap">15,00 €</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- CONTORNI — Olive dark -->
+  <!-- ═══════════════════════════════════════ -->
+  <section id="contorni" class="py-16 md:py-20 bg-olive text-cream">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 fade-up">
+        <span class="text-4xl mb-3 block">🥗</span>
+        <h2 class="font-serif text-3xl md:text-4xl font-semibold">Contorni</h2>
+        <div class="section-divider bg-gradient-to-r from-green-400 to-emerald-300 mx-auto mt-4"></div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-5">
+        <div class="menu-item fade-up bg-cream/10 backdrop-blur-sm rounded-xl p-5 md:p-6 border border-cream/10">
+          <h3 class="font-serif text-xl font-semibold">Patate Rustiche al Forno</h3>
+          <p class="text-cream/60 mt-1 text-sm leading-relaxed">Con aglio in camicia e rosmarino.</p>
+          <p class="text-xl font-serif font-bold text-green-300 mt-3">5,00 €</p>
+        </div>
+        <div class="menu-item fade-up bg-cream/10 backdrop-blur-sm rounded-xl p-5 md:p-6 border border-cream/10">
+          <h3 class="font-serif text-xl font-semibold">Erbe di Campagna Saltate</h3>
+          <p class="text-cream/60 mt-1 text-sm leading-relaxed">Cicoria e bietole saltate in padella con aglio e peperoncino.</p>
+          <p class="text-xl font-serif font-bold text-green-300 mt-3">5,00 €</p>
+        </div>
+        <div class="menu-item fade-up bg-cream/10 backdrop-blur-sm rounded-xl p-5 md:p-6 border border-cream/10">
+          <h3 class="font-serif text-xl font-semibold">Verdure Gratinate</h3>
+          <p class="text-cream/60 mt-1 text-sm leading-relaxed">Pomodori, zucchine e melanzane con pangrattato profumato.</p>
+          <p class="text-xl font-serif font-bold text-green-300 mt-3">6,00 €</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- PIADINE — Light warm -->
+  <!-- ═══════════════════════════════════════ -->
+  <section id="piadine" class="py-16 md:py-20 bg-gradient-to-br from-amber-50 to-orange-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 fade-up">
+        <span class="text-4xl mb-3 block">🫓</span>
+        <h2 class="font-serif text-3xl md:text-4xl text-charcoal font-semibold">Piadine e Crescioni</h2>
+        <p class="text-charcoal/60 mt-2">L'angolo della piadina romagnola</p>
+        <div class="section-divider bg-gradient-to-r from-amber-500 to-orange-400 mx-auto mt-4"></div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-5">
+        <div class="menu-item fade-up bg-white/80 backdrop-blur-sm rounded-xl p-5 md:p-6 shadow-sm border border-amber-200">
+          <div class="flex justify-between items-start gap-4">
+            <div class="flex-1">
+              <h3 class="font-serif text-xl font-semibold text-charcoal">Cesto Piadina Spessa (Cesenate)</h3>
+              <p class="text-charcoal/60 mt-1 text-sm leading-relaxed">Artigianale, IGP (5 pezzi).</p>
+            </div>
+            <span class="text-xl font-serif font-bold text-amber-700 whitespace-nowrap">4,00 €</span>
+          </div>
+        </div>
+        <div class="menu-item fade-up bg-white/80 backdrop-blur-sm rounded-xl p-5 md:p-6 shadow-sm border border-amber-200">
+          <div class="flex justify-between items-start gap-4">
+            <div class="flex-1">
+              <h3 class="font-serif text-xl font-semibold text-charcoal">Cesto Piadina Sottile (Riminese)</h3>
+              <p class="text-charcoal/60 mt-1 text-sm leading-relaxed">Artigianale, IGP (5 pezzi).</p>
+            </div>
+            <span class="text-xl font-serif font-bold text-amber-700 whitespace-nowrap">3,50 €</span>
+          </div>
+        </div>
+        <div class="menu-item fade-up bg-white/80 backdrop-blur-sm rounded-xl p-5 md:p-6 shadow-sm border border-amber-200">
+          <div class="flex justify-between items-start gap-4">
+            <div class="flex-1">
+              <h3 class="font-serif text-xl font-semibold text-charcoal">Piadina Crudo e Squacquerone</h3>
+              <p class="text-charcoal/60 mt-1 text-sm leading-relaxed">Farcita con Prosciutto Crudo DOP, Squacquerone e rucola.</p>
+            </div>
+            <span class="text-xl font-serif font-bold text-amber-700 whitespace-nowrap">7,50 €</span>
+          </div>
+        </div>
+        <div class="menu-item fade-up bg-white/80 backdrop-blur-sm rounded-xl p-5 md:p-6 shadow-sm border border-amber-200">
+          <div class="flex justify-between items-start gap-4">
+            <div class="flex-1">
+              <h3 class="font-serif text-xl font-semibold text-charcoal">Crescione alle Erbe</h3>
+              <p class="text-charcoal/60 mt-1 text-sm leading-relaxed">(Cassone) farcito con erbe di campo (rosole) e aglio.</p>
+            </div>
+            <span class="text-xl font-serif font-bold text-amber-700 whitespace-nowrap">6,00 €</span>
+          </div>
+        </div>
+        <div class="menu-item fade-up bg-white/80 backdrop-blur-sm rounded-xl p-5 md:p-6 shadow-sm border border-amber-200 md:col-span-2 md:max-w-md md:mx-auto">
+          <div class="flex justify-between items-start gap-4">
+            <div class="flex-1">
+              <h3 class="font-serif text-xl font-semibold text-charcoal">Crescione Rosso</h3>
+              <p class="text-charcoal/60 mt-1 text-sm leading-relaxed">(Cassone) farcito con pomodoro e mozzarella.</p>
+            </div>
+            <span class="text-xl font-serif font-bold text-amber-700 whitespace-nowrap">6,00 €</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- PIZZE — Red/warm dark -->
+  <!-- ═══════════════════════════════════════ -->
+  <section id="pizze" class="py-16 md:py-20 bg-gradient-to-br from-red-900 to-red-950 text-cream">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 fade-up">
+        <span class="text-4xl mb-3 block">🍕</span>
+        <h2 class="font-serif text-3xl md:text-4xl font-semibold">Pizzeria</h2>
+        <p class="text-cream/60 mt-2">Forno a legna, lievitazione 48h</p>
+        <div class="section-divider bg-gradient-to-r from-red-400 to-orange-400 mx-auto mt-4"></div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-5">
+        <div class="menu-item fade-up bg-cream/10 backdrop-blur-sm rounded-xl p-5 md:p-6 border border-cream/10">
+          <div class="flex justify-between items-start gap-4">
+            <div class="flex-1">
+              <h3 class="font-serif text-xl font-semibold">Pizza Margherita</h3>
+              <p class="text-cream/60 mt-1 text-sm leading-relaxed">Pomodoro San Marzano, fiordilatte, basilico fresco.</p>
+            </div>
+            <span class="text-xl font-serif font-bold text-red-300 whitespace-nowrap">7,50 €</span>
+          </div>
+        </div>
+        <div class="menu-item fade-up bg-cream/10 backdrop-blur-sm rounded-xl p-5 md:p-6 border border-cream/10">
+          <div class="flex justify-between items-start gap-4">
+            <div class="flex-1">
+              <h3 class="font-serif text-xl font-semibold">Pizza "Patacca"</h3>
+              <p class="text-cream/60 mt-1 text-sm leading-relaxed">Fiordilatte, salsiccia, patate al forno, rosmarino.</p>
+            </div>
+            <span class="text-xl font-serif font-bold text-red-300 whitespace-nowrap">10,00 €</span>
+          </div>
+        </div>
+        <div class="menu-item fade-up bg-cream/10 backdrop-blur-sm rounded-xl p-5 md:p-6 border border-cream/10">
+          <div class="flex justify-between items-start gap-4">
+            <div class="flex-1">
+              <h3 class="font-serif text-xl font-semibold">Pizza Diavola</h3>
+              <p class="text-cream/60 mt-1 text-sm leading-relaxed">Pomodoro, fiordilatte, spianata piccante calabra.</p>
+            </div>
+            <span class="text-xl font-serif font-bold text-red-300 whitespace-nowrap">8,50 €</span>
+          </div>
+        </div>
+        <div class="menu-item fade-up bg-cream/10 backdrop-blur-sm rounded-xl p-5 md:p-6 border border-cream/10">
+          <div class="flex justify-between items-start gap-4">
+            <div class="flex-1">
+              <h3 class="font-serif text-xl font-semibold">Pizza Romagnola</h3>
+              <p class="text-cream/60 mt-1 text-sm leading-relaxed">Pomodoro, fiordilatte. In uscita: Crudo, stracchino e rucola.</p>
+            </div>
+            <span class="text-xl font-serif font-bold text-red-300 whitespace-nowrap">11,00 €</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- DOLCI — Soft pink/cream -->
+  <!-- ═══════════════════════════════════════ -->
+  <section id="dolci" class="py-16 md:py-20 bg-gradient-to-br from-rose-50 to-amber-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 fade-up">
+        <span class="text-4xl mb-3 block">🍰</span>
+        <h2 class="font-serif text-3xl md:text-4xl text-charcoal font-semibold">Dolci della Casa</h2>
+        <div class="section-divider bg-gradient-to-r from-rose-400 to-pink-300 mx-auto mt-4"></div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-5">
+        <div class="menu-item fade-up bg-white/80 backdrop-blur-sm rounded-xl p-5 md:p-6 shadow-sm border border-rose-200">
+          <h3 class="font-serif text-xl font-semibold text-charcoal">Mascarpone della Nonna</h3>
+          <p class="text-charcoal/60 mt-1 text-sm leading-relaxed">In coppa con scaglie di cioccolato fondente.</p>
+          <p class="text-xl font-serif font-bold text-rose-600 mt-3">5,50 €</p>
+        </div>
+        <div class="menu-item fade-up bg-white/80 backdrop-blur-sm rounded-xl p-5 md:p-6 shadow-sm border border-rose-200">
+          <h3 class="font-serif text-xl font-semibold text-charcoal">Zuppa Inglese</h3>
+          <p class="text-charcoal/60 mt-1 text-sm leading-relaxed">Ricetta classica con Alchermes e crema pasticcera.</p>
+          <p class="text-xl font-serif font-bold text-rose-600 mt-3">6,00 €</p>
+        </div>
+        <div class="menu-item fade-up bg-white/80 backdrop-blur-sm rounded-xl p-5 md:p-6 shadow-sm border border-rose-200">
+          <h3 class="font-serif text-xl font-semibold text-charcoal">Ciambella Romagnola</h3>
+          <p class="text-charcoal/60 mt-1 text-sm leading-relaxed">Fetta di ciambella dura, ideale da "tocciare" (inzuppare) nel vino.</p>
+          <p class="text-xl font-serif font-bold text-rose-600 mt-3">4,00 €</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- CANTINA — Deep wine dark -->
+  <!-- ═══════════════════════════════════════ -->
+  <section id="cantina" class="py-16 md:py-20 bg-gradient-to-br from-wine to-purple-950 text-cream">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 fade-up">
+        <span class="text-4xl mb-3 block">🍷</span>
+        <h2 class="font-serif text-3xl md:text-4xl font-semibold">Cantina e Bevande</h2>
+        <div class="section-divider bg-gradient-to-r from-purple-400 to-rose-400 mx-auto mt-4"></div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-5">
+        <div class="menu-item fade-up bg-cream/10 backdrop-blur-sm rounded-xl p-5 md:p-6 border border-cream/10">
+          <div class="flex justify-between items-start gap-4">
+            <div class="flex-1">
+              <h3 class="font-serif text-xl font-semibold">Acqua Microfiltrata</h3>
+              <p class="text-cream/60 mt-1 text-sm">Naturale o Frizzante (0,75L).</p>
+            </div>
+            <span class="text-xl font-serif font-bold text-purple-300 whitespace-nowrap">2,50 €</span>
+          </div>
+        </div>
+        <div class="menu-item fade-up bg-cream/10 backdrop-blur-sm rounded-xl p-5 md:p-6 border border-cream/10">
+          <div class="flex justify-between items-start gap-4">
+            <div class="flex-1">
+              <h3 class="font-serif text-xl font-semibold">Birra Artigianale Biondi</h3>
+              <p class="text-cream/60 mt-1 text-sm">Birrificio locale alla spina (Media 0,4L).</p>
+            </div>
+            <span class="text-xl font-serif font-bold text-purple-300 whitespace-nowrap">5,50 €</span>
+          </div>
+        </div>
+        <div class="menu-item fade-up bg-cream/10 backdrop-blur-sm rounded-xl p-5 md:p-6 border border-cream/10">
+          <div class="flex justify-between items-start gap-4">
+            <div class="flex-1">
+              <h3 class="font-serif text-xl font-semibold">Sangiovese Sup. "Riserva"</h3>
+              <p class="text-cream/60 mt-1 text-sm">Bottiglia di vino rosso locale DOC.</p>
+            </div>
+            <span class="text-xl font-serif font-bold text-purple-300 whitespace-nowrap">18,00 €</span>
+          </div>
+        </div>
+        <div class="menu-item fade-up bg-cream/10 backdrop-blur-sm rounded-xl p-5 md:p-6 border border-cream/10">
+          <div class="flex justify-between items-start gap-4">
+            <div class="flex-1">
+              <h3 class="font-serif text-xl font-semibold">Albana di Romagna DOCG</h3>
+              <p class="text-cream/60 mt-1 text-sm">Secco (per carni bianche/primi) o Dolce (per la ciambella).</p>
+            </div>
+            <span class="text-xl font-serif font-bold text-purple-300 whitespace-nowrap">22,00 €</span>
+          </div>
+        </div>
+        <div class="menu-item fade-up bg-cream/10 backdrop-blur-sm rounded-xl p-5 md:p-6 border border-cream/10 md:col-span-2 md:max-w-md md:mx-auto">
+          <div class="flex justify-between items-start gap-4">
+            <div class="flex-1">
+              <h3 class="font-serif text-xl font-semibold">Cagnina di Romagna</h3>
+              <p class="text-cream/60 mt-1 text-sm">Vino dolce rosso novello, perfetto per i dessert.</p>
+            </div>
+            <span class="text-xl font-serif font-bold text-purple-300 whitespace-nowrap">4,00 €</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- SERVIZIO / COPERTO — Simple light -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="py-10 bg-cream-dark border-y border-secondary/15">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-up">
+      <p class="text-charcoal/50 text-sm uppercase tracking-widest font-semibold mb-2">🍽️ Servizi Aggiuntivi</p>
+      <div class="bg-white rounded-xl p-5 shadow-sm border border-secondary/10 inline-flex items-center gap-6">
+        <div class="text-left">
+          <h3 class="font-serif text-lg font-semibold text-charcoal">Servizio e Coperto</h3>
+          <p class="text-charcoal/60 text-sm">Apparecchiatura in stoffa, cestino di pane e grissini.</p>
+        </div>
+        <span class="text-xl font-serif font-bold text-primary whitespace-nowrap">2,50 € <span class="text-xs font-sans font-normal text-charcoal/40">/ persona</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- CONTACT BANNER -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="py-16 bg-gradient-to-r from-primary to-wine text-cream">
+    <div class="max-w-3xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+      <h2 class="font-serif text-3xl md:text-4xl font-semibold mb-3">Vieni a trovarci!</h2>
+      <p class="text-cream/60 text-lg mb-8">Scrivici per informazioni o per prenotare il tuo tavolo.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-6">
+        <a href="mailto:pataccaburdel@gmail.com" class="inline-flex items-center gap-2 bg-cream text-primary px-6 py-3 rounded-lg font-semibold text-lg hover:bg-cream-dark transition-colors shadow-lg">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          pataccaburdel@gmail.com
+        </a>
+      </div>
+      <p class="text-cream/50 text-sm">
+        📍 Via Cantalupo 67, 47032 Bertinoro (FC)
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-charcoal text-cream/80 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <a href="/" class="font-serif text-2xl text-cream font-semibold">Pataccaburdel</a>
+        <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-cream/50 text-sm">
+          <span>📍 Via Cantalupo 67, 47032 Bertinoro (FC)</span>
+          <span class="hidden sm:inline">·</span>
+          <a href="mailto:pataccaburdel@gmail.com" class="hover:text-cream transition-colors">pataccaburdel@gmail.com</a>
+        </div>
+        <p class="text-cream/40 text-sm">&copy; 2024 Pataccaburdel</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    // Intersection Observer for fade-up animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+
 </body>
 </html>
