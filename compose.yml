@@ -3,4 +3,4 @@ services:
     build: .
     container_name: pataccaburdel-web
     ports:
-      - '8080:3000'
+      - '127.0.0.1:3000:3000'
